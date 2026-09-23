@@ -1,0 +1,22 @@
+{
+  "enabledPlugins": {
+    "wiseup-marketing@wiseup": true
+  },
+  "permissions": {
+    "allow": [
+      "Bash(node _templates/banner/render.mjs:*)",
+      "Bash(node _templates/nano-banana/generate.mjs:*)"
+    ],
+    "ask": [
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(rm:*)",
+      "Bash(git push:*)",
+      "Bash(npx:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Edit(./.env)"
+    ]
+  }
+}

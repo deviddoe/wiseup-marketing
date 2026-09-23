@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="{{FONT_CSS}}" rel="stylesheet">
+<style>
+  /* Every value below is injected from _brand/tokens.json. Edit that file, not this one. */
+  :root {
+    --bg: {{THEME_BG}};
+    --bg-rgb: {{THEME_BG_RGB}};
+    --fg: {{THEME_FG}};
+    --muted: {{THEME_MUTED}};
+    --cta: {{THEME_CTA}};
+    --cta-fg: {{THEME_CTA_FG}};
+    --highlight: {{HL_BG}};
+    --highlight-fg: {{HL_FG}};
+
+    --w: {{W}}px;
+    --h: {{H}}px;
+    --u: calc(var(--w) / 1080); /* scale unit: 1 = 1px at 1080 width */
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: var(--w); height: var(--h); overflow: hidden; }
+  body {
+    font-family: {{FONT_STACK}};
+    background: var(--bg); color: var(--fg);
+    position: relative;
+  }
+
+  .bg { position: absolute; inset: 0; background: center / cover no-repeat url("{{BG}}"); }
+  .shade { position: absolute; inset: 0; background: linear-gradient(180deg,
+      rgba(var(--bg-rgb), .62) 0%, rgba(var(--bg-rgb), 0) 16%,
+      rgba(var(--bg-rgb), 0) 34%, rgba(var(--bg-rgb), .94) 70%, rgba(var(--bg-rgb), 1) 100%); }
+
+  .content {
+    position: absolute; left: calc(72 * var(--u)); right: calc(72 * var(--u)); bottom: calc(84 * var(--u));
+    display: flex; flex-direction: column; gap: calc(30 * var(--u));
+  }
+  body.layout-text .content { top: calc(230 * var(--u)); bottom: auto; }
+
+  .badge {
+    align-self: flex-start; background: var(--highlight); color: var(--highlight-fg);
+    font-weight: 700; font-size: calc(36 * var(--u)); line-height: 1.2;
+    padding: calc(10 * var(--u)) calc(26 * var(--u)) calc(12 * var(--u));
+    border-radius: calc(999 * var(--u));
+  }
+  .badge.transformed { font-size: calc(31 * var(--u)); padding-top: calc(12 * var(--u)); padding-bottom: calc(12 * var(--u)); letter-spacing: 0.02em; }
+
+  h1 {
+    font-weight: {{HEADLINE_WEIGHT}}; font-stretch: {{HEADLINE_STRETCH}};
+    font-size: calc({{HEADLINE_SIZE}} * var(--u)); line-height: 1.04; letter-spacing: {{HEADLINE_TRACKING}};
+  }
+  p.sub {
+    font-weight: 400; font-size: calc(38 * var(--u)); line-height: 1.38;
+    color: var(--muted); max-width: 92%;
+  }
+  .cta {
+    align-self: flex-start; background: var(--cta); color: var(--cta-fg);
+    font-weight: 600; font-size: calc(36 * var(--u)); line-height: 1.2;
+    padding: calc(20 * var(--u)) calc(40 * var(--u)); border-radius: calc(14 * var(--u));
+  }
+
+  .logo { position: absolute; top: calc(64 * var(--u)); left: calc(72 * var(--u)); width: calc({{LOGO_WIDTH}} * var(--u)); line-height: 0; }
+  .logo svg { width: 100%; height: auto; display: block; }
+  .logo .wordmark { font-weight: 800; font-size: calc(44 * var(--u)); line-height: 1; letter-spacing: -0.01em; }
+  .empty { display: none !important; }
+</style>
+</head>
+<body class="layout-{{LAYOUT}} theme-{{THEME}}">
+  <div class="bg {{BG_CLASS}}"></div>
+  <div class="shade {{BG_CLASS}}"></div>
+  <div class="logo {{LOGO_CLASS}}">{{LOGO}}</div>
+  <div class="content">
+    <div class="badge {{BADGE_CLASS}}">{{BADGE}}</div>
+    <h1>{{HEADLINE}}</h1>
+    <p class="sub {{SUB_CLASS}}">{{SUB}}</p>
+    <div class="cta {{CTA_CLASS}}">{{CTA}}</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "wiseup-marketing",
+  "displayName": "Wiseup Marketing",
+  "version": "1.0.0",
+  "description": "WM Plugin. Drops a full marketing department into any project: a CMO orchestrator delegating to nine specialist agents, with the interview and marketing toolbox skills bundled in. Ships empty by design - no brand, no colours, no fonts, no language, no prices - and fills itself through a first-run interview. Every deliverable stops at review for a human to approve.",
+  "author": {
+    "name": "Wiseup"
+  },
+  "keywords": [
+    "marketing",
+    "content",
+    "ads",
+    "seo",
+    "social",
+    "outreach",
+    "brand",
+    "orchestrator"
+  ],
+  "defaultEnabled": false,
+  "license": "MIT",
+  "homepage": "https://github.com/deviddoe/wiseup-marketing",
+  "repository": "https://github.com/deviddoe/wiseup-marketing"
+}

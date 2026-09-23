@@ -1,0 +1,15 @@
+{
+  "name": "wiseup",
+  "description": "Wiseup plugins for Claude Code. Currently: Wiseup Marketing (WM) - a full marketing department for any project, shipped with no preset brand, language or product data.",
+  "owner": {
+    "name": "Wiseup"
+  },
+  "plugins": [
+    {
+      "name": "wiseup-marketing",
+      "source": "./wiseup-marketing",
+      "description": "Wiseup Marketing (WM) - a complete marketing department for any project: a CMO orchestrator and nine specialist agents working out of a self-contained Marketing/ folder. Ships with zero preset brand, language or product data; everything is captured in a first-run interview.",
+      "license": "MIT"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "_comment": "Placeholder spec. Write a concrete scene that matches the imagery section of brand-style-guide.md. Describe colours in words, never as hex codes, and never ask for text in the image.",
+  "prompt": "<subject, place, light, lens or angle, mood>",
+  "out": "<deliverable>_bg.jpg",
+  "aspect_ratio": "4:5",
+  "image_size": "2K"
+}

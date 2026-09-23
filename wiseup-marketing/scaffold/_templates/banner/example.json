@@ -1,0 +1,10 @@
+{
+  "_comment": "Placeholder spec. Replace every string with real copy that has passed the claims policy.",
+  "size": "1080x1350",
+  "layout": "text",
+  "theme": "dark",
+  "badge": "<badge, 3 words max>",
+  "headline": "<headline, 7 words max>",
+  "sub": "<supporting line, 15 words max>",
+  "cta": "<call to action, 4 words max>"
+}

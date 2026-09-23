@@ -1,0 +1,9 @@
+# never publish secrets or local renders
+.env
+.env.local
+*.render.html
+*.response.json
+
+# OS noise
+Thumbs.db
+.DS_Store
