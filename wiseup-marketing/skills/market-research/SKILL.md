@@ -1,6 +1,6 @@
 ---
 name: market-research
-description: Run a sourced market or competitor study - competitors, market size, customer pain points and the language customers use - and turn it into implications for messaging, channels and pricing.
+description: Run a sourced market or competitor study and turn it into implications for messaging, channels and pricing.
 ---
 
 # Market research

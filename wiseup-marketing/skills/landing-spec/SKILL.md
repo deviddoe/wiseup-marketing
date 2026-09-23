@@ -1,6 +1,6 @@
 ---
 name: landing-spec
-description: Write a landing page spec - sections, final copy, pricing, FAQ, SEO, analytics events and acceptance criteria - that the development session implements. Use for any new or revised page on the marketing site.
+description: Write a landing page spec - sections, final copy, pricing, FAQ, SEO, events - that the dev team implements.
 ---
 
 # Landing spec

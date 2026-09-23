@@ -1,6 +1,6 @@
 ---
 name: banner-compose
-description: Render an on-brand banner PNG with correct text (headline, badge, sub, CTA, wordmark) over a solid brand background or a text-free AI image. Use whenever a visual needs text.
+description: Render an on-brand banner PNG with correct text over a brand background or a text-free AI image.
 ---
 
 # Banner compose

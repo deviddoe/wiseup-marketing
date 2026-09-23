@@ -1,6 +1,6 @@
 ---
 name: market
-description: AI Marketing Suite orchestrator. Routes a marketing request to the right sub-analysis (audit, ads, copy, social, SEO, funnel, emails, launch, proposal, report) and runs it end to end.
+description: AI Marketing Suite orchestrator: routes a marketing request to the right analysis and runs it.
 ---
 
 > **Wiseup Marketing note.** This is a bundled general-purpose tool, not a WM process skill. Use it for its thinking - structures, angles, checklists - but **ignore its own output filenames and folder conventions**. Every deliverable is saved where `_sop/02-file-conventions.md` says, with WM frontmatter and `status: draft`, and every claim is checked against `_context/claims-policy.md` before it goes anywhere.

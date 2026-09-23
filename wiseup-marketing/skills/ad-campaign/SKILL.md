@@ -1,6 +1,6 @@
 ---
 name: ad-campaign
-description: Build a paid campaign end to end on whichever platform the project uses - structure, targeting or keywords, copy variants, visuals, budget scenarios and tracking - ready for the owner's review.
+description: Build a paid campaign end to end: structure, targeting, copy variants, visuals, budget scenarios, tracking.
 ---
 
 # Ad campaign

@@ -1,6 +1,6 @@
 ---
 name: nano-banana-visual
-description: Generate text-free, on-brand images with Google Gemini "Nano Banana" via the API, falling back to ready-to-paste prompts when no API key is set. Always pair with banner-compose for any text.
+description: Generate text-free on-brand images with Google Gemini, or prompts for manual generation.
 ---
 
 # Nano Banana visual

@@ -1,6 +1,6 @@
 ---
 name: monthly-report
-description: Produce the monthly marketing report - KPIs against target, channels, CAC, what worked, recommendations - for the previous month. Runs on a schedule or on request.
+description: Monthly marketing report: KPIs against target, channels, CAC, recommendations.
 ---
 
 # Monthly report

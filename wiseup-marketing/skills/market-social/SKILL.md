@@ -1,6 +1,6 @@
 ---
 name: market-social
-description: Generate a social media content calendar with platform-specific posts, hooks, hashtags and a repurposing strategy.
+description: Social content calendar with platform-specific posts.
 ---
 
 > **Wiseup Marketing note.** This is a bundled general-purpose tool, not a WM process skill. Use it for its thinking - structures, angles, checklists - but **ignore its own output filenames and folder conventions**. Every deliverable is saved where `_sop/02-file-conventions.md` says, with WM frontmatter and `status: draft`, and every claim is checked against `_context/claims-policy.md` before it goes anywhere.

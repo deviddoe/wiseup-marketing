@@ -1,6 +1,6 @@
 ---
 name: weekly-social-plan
-description: Produce the next period's social media plan and ready-to-review posts for every active channel. Runs on a schedule or on request.
+description: Next period's social media plan and draft posts for every active channel.
 ---
 
 # Weekly social plan

@@ -1,6 +1,6 @@
 ---
 name: market-copy
-description: Analyse and generate marketing copy: headlines, value propositions, page and ad copy, with tone dimensions and variants.
+description: Marketing copy: headlines, value propositions, page and ad copy.
 ---
 
 > **Wiseup Marketing note.** This is a bundled general-purpose tool, not a WM process skill. Use it for its thinking - structures, angles, checklists - but **ignore its own output filenames and folder conventions**. Every deliverable is saved where `_sop/02-file-conventions.md` says, with WM frontmatter and `status: draft`, and every claim is checked against `_context/claims-policy.md` before it goes anywhere.

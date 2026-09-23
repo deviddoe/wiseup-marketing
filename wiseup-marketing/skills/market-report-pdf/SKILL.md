@@ -1,6 +1,6 @@
 ---
 name: market-report-pdf
-description: Generate a marketing report as a PDF, from the same analysis data as the Markdown report.
+description: Marketing report as a PDF.
 ---
 
 > **Wiseup Marketing note.** This is a bundled general-purpose tool, not a WM process skill. Use it for its thinking - structures, angles, checklists - but **ignore its own output filenames and folder conventions**. Every deliverable is saved where `_sop/02-file-conventions.md` says, with WM frontmatter and `status: draft`, and every claim is checked against `_context/claims-policy.md` before it goes anywhere.

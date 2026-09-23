@@ -1,6 +1,6 @@
 ---
 name: wm-init
-description: Set up the Wiseup Marketing department in this project - create the Marketing/ folder, interview the owner until the required context is captured, and wire up activation. Use for "set up marketing", "wm init", "add a marketing team".
+description: Set up the marketing department in this project: create Marketing/, interview the owner, wire up activation. Use for "set up marketing", "wm init".
 ---
 
 # WM init

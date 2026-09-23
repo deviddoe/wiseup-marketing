@@ -1,6 +1,6 @@
 ---
 name: outreach-batch
-description: Build a batch of outreach targets from public business information, with personalised first messages and follow-ups that the owner sends manually. Use for target lists, community-group posts and inbound enterprise leads.
+description: Build a batch of outreach targets with personalised messages the owner sends manually.
 ---
 
 # Outreach batch

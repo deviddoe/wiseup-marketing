@@ -1,6 +1,6 @@
 ---
 name: market-landing
-description: Landing page CRO analysis: structure, above-the-fold, friction, trust signals and a prioritised fix list.
+description: Landing page CRO analysis with prioritised fixes.
 ---
 
 > **Wiseup Marketing note.** This is a bundled general-purpose tool, not a WM process skill. Use it for its thinking - structures, angles, checklists - but **ignore its own output filenames and folder conventions**. Every deliverable is saved where `_sop/02-file-conventions.md` says, with WM frontmatter and `status: draft`, and every claim is checked against `_context/claims-policy.md` before it goes anywhere.

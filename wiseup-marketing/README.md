@@ -101,6 +101,7 @@ MIT — see `LICENSE`.
 
 ## Version
 
+1.0.1 — always-on descriptions trimmed by 45% (~2,193 → ~1,630 tokens per session).
 1.0.0 — first public release. Licensing resolved and attributed; MIT throughout.
 0.3.0 — the interview and marketing toolbox skills now ship inside the plugin.
 0.2.0 — renamed to Wiseup Marketing; every project assumption removed; interview rebuilt around a four-tier context checklist.

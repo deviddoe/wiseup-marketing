@@ -1,6 +1,6 @@
 ---
 name: market-brand
-description: Analyse brand voice and produce brand voice guidelines: tone dimensions, personality archetypes, do and don't examples.
+description: Brand voice analysis and brand voice guidelines.
 ---
 
 > **Wiseup Marketing note.** This is a bundled general-purpose tool, not a WM process skill. Use it for its thinking - structures, angles, checklists - but **ignore its own output filenames and folder conventions**. Every deliverable is saved where `_sop/02-file-conventions.md` says, with WM frontmatter and `status: draft`, and every claim is checked against `_context/claims-policy.md` before it goes anywhere.
