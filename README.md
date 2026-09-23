@@ -10,7 +10,12 @@ claude plugin marketplace add <this repository's URL>
 
 ### [Wiseup Marketing](./wiseup-marketing) (`wiseup-marketing`)
 
-A complete marketing department you can drop into any project: a CMO orchestrator, nine specialist agents, and a self-contained `Marketing/` folder for everything they produce. It ships with **no brand, no colours, no fonts, no language and no prices** - all of that is captured in a first-run interview instead of assumed - and no agent ever publishes, sends or spends anything.
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-1.1.0-green.svg)](./wiseup-marketing#changelog)
+
+A complete marketing department you can drop into any project: a CMO orchestrator, nine specialist agents, and a self-contained `Marketing/` folder for everything they produce.
+
+It ships with **no brand, no colours, no fonts, no language and no prices** — all of that is captured on first run instead of assumed. It detects how to place itself safely in your repository, asks seven questions, and starts working. No agent ever publishes, sends or spends anything.
 
 ```bash
 claude plugin install wiseup-marketing@wiseup

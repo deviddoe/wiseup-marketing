@@ -1,77 +1,77 @@
 ---
 name: wm-init
-description: Set up the marketing department in this project: create Marketing/, interview the owner, wire up activation. Use for "set up marketing", "wm init".
+description: Set up the marketing department in this project: detect the environment, place Marketing/ safely, capture the minimum context and start working. Use for "set up marketing", "wm init", "add a marketing team".
 ---
 
 # WM init
 
-Run once per project. It turns a repository into one that has a working marketing department, without touching the project's own architecture.
+Run once per project. It turns a repository into one that has a working marketing department, without touching the project's own architecture and without an interrogation.
 
-**Conduct this entire skill in English** until the owner's reply language is recorded in step 3, round 1. From that point on, speak to the owner in their language; the `_context/` files stay in English regardless.
+**Work in English** until the owner's reply language is recorded in round 1. From that point on, speak their language; the `_context/` files stay in English regardless.
 
-WM ships with **no defaults**: no brand, no colours, no fonts, no tone, no prices, no channels, no language. Everything below is captured from the owner or left as an explicit `TODO`. Never fill a gap with a plausible guess, and never carry an answer over from another project.
+WM ships with **no defaults**: no brand, no colours, no fonts, no tone, no prices, no channels, no language. Everything is captured from the owner or left as an explicit `TODO`. Never fill a gap with a plausible guess, and never carry an answer over from another project.
 
-## Step 1 - Confirm the location
+## The shape of this skill
 
-Default marketing root: `Marketing/` at the repository root. Confirm it, or use the folder the owner names. Everything the marketing team ever writes lives inside it.
+```
+detect (0 questions) -> confirm placement (1) -> round 1 (4) -> round 2 (3) -> work starts
+                                                                              |
+                                              everything else is asked later, by the agent that needs it
+```
 
-If that folder already exists with a `CLAUDE.md` in it, **stop** and ask whether to update the existing setup instead of overwriting it.
+Front-loading twenty questions is what makes a tool like this tiring. Ask what blocks the first deliverable; ask the rest when it blocks something.
 
-## Step 2 - Copy the scaffold
+## Step 1 - Detect, do not ask
 
-Copy `${CLAUDE_PLUGIN_ROOT}/scaffold/` into the marketing root, preserving structure. **Include the dot-files** - `.claude/settings.json`, `.env.example`, `.gitignore` - a plain glob copy will miss them. Then create the empty output folders: `research/`, `research/outreach/`, `social/`, `ads/`, `seo/`, `pages/`, `reports/`, `reports/data/`, `presentation/`, `_archive/`.
+Follow `${CLAUDE_PLUGIN_ROOT}/reference/setup-profiles.md` step 1. Read the git state, the repository visibility, the author count, the project type, and any product facts already in `package.json` or the README.
 
-Never overwrite an existing file; list every one you skipped. The agents and the process skills stay in the plugin - only content, configuration and templates are scaffolded.
+If a marketing root already exists with a `CLAUDE.md`, **stop** and run `wm-doctor` instead: report the current setup and ask whether to repair or extend it.
 
-## Step 3 - The interview
+## Step 2 - Confirm the placement, once
 
-Read `${CLAUDE_PLUGIN_ROOT}/reference/required-context.md`. It is the canonical list of what must be known, in four tiers. The interview covers **Tier 1 and Tier 2 in full**; Tier 3 is covered for the work the owner says they want first; Tier 4 is the grilling.
+Pick the profile from that reference and put it to the owner in a single `AskUserQuestion` call: what was detected, which profile, the exact file actions, and the alternatives. Then apply it exactly as confirmed and write `<marketing root>/.wm/setup.json`.
 
-**Run it with the bundled `wiseup-marketing:grilling` skill.** It ships with this plugin, so it is always there - invoke it and work the design tree it describes: ask a whole frontier per round, with your recommended answer next to each question, then wait for the answers before recomputing the frontier.
+Copy `${CLAUDE_PLUGIN_ROOT}/scaffold/` into the marketing root, **including the dot-files** (`.claude/settings.json`, `.env.example`, `.gitignore`) - a plain glob copy misses them. Create the output folders: `research/`, `research/outreach/`, `social/`, `ads/`, `seo/`, `pages/`, `reports/`, `reports/data/`, `presentation/`, `_archive/`. Never overwrite an existing file; list any you skipped. The agents and process skills stay in the plugin - only content, configuration and templates are scaffolded.
 
-**Ask every round through the `AskUserQuestion` tool, not as a numbered list in prose.** One call per round, one question object per item, each with a short header and two to four concrete options plus your recommendation first. Free text is always available to the owner, so offer options even where the answer is open - a bad option is still faster to correct than a blank page.
+## Step 3 - Round 1: who and what
 
-Order of rounds (later rounds depend on earlier answers, so never merge them):
+One `AskUserQuestion` call, four questions. Pre-fill every option from what you detected; the owner should be confirming, not typing.
 
-| Round | Covers | Writes to |
-|---|---|---|
-| 1 | Reply language, customer language(s), project and product name, time zone, who approves and publishes | `00-config.md`, `CLAUDE.md` |
-| 2 | What the product does, who it is for, the primary conversion action and its URL | `product-offering.md`, `brand-context.md`, `00-config.md` |
-| 3 | Plans, prices, currency, billing and trial terms; live features versus roadmap | `product-offering.md` |
-| 4 | Forbidden claims, legal or regulatory limits, whether any real testimonial exists | `claims-policy.md` |
-| 5 | Form of address, tone, glossary of words we use and never use | `brand-voice-guide.md`, `00-config.md` |
-| 6 | Brand colours, typography, logo files - or an explicit "none yet" | `_brand/tokens.json`, `brand-style-guide.md` |
-| 7 | Segments, goals with dates, channels, ad platforms, budget ceiling, analytics status | `growth-marketing-context.md`, `00-config.md` |
-| 8 | Site stack, routing, languages, who deploys | `technical-context.md` |
-| 9+ | **Grilling** - Tier 4. Keep going until the frontier is empty | across `_context/` |
+1. **Reply language** - the language the CMO speaks to them in. (Offer the language they have been writing to you in.)
+2. **Customer-facing language(s)** - what the copy is written in.
+3. **Product name as it appears in copy**, plus the public domain. (Offer what `package.json` or the README says.)
+4. **Who approves and publishes** - name and role. (Offer the git user name.)
 
-**Write every answer into the file the moment you get it.** Do not hold a round in conversation and batch the writing; a dropped session must never lose an answer.
+Write all four into `_context/00-config.md` immediately, then switch to the reply language.
 
-If the owner says "later" or "I don't know", write an explicit line:
-`TODO: <what is missing> - ask <who can answer> - blocks <which agent or deliverable>`
+## Step 4 - Round 2: what we sell and where it leads
 
-Round 6 has a hard consequence worth stating out loud: **until brand colours and a font stack exist in `_brand/tokens.json`, the banner renderer refuses to run.** There is no house style to fall back on. If the owner has no brand yet, record that and put a brand brief from the `copywriter` agent at the top of the first-tasks list.
+One call, three questions.
 
-Facts are your job, not the owner's. If a question can be answered by reading the repository - the stack, the routes, the i18n files, the existing pages - go and read it, then confirm what you found instead of asking a blank question.
+5. **What the product does**, in one sentence a customer would say. (Offer the README description as a starting point.)
+6. **The primary conversion action and its exact URL** - what a person does when the marketing works.
+7. **What you want first** - the first deliverable. Offer concrete options: competitor research, a landing page spec, a content plan, an outreach batch, a campaign.
 
-## Step 4 - Write the project CLAUDE.md
+Write them into `product-offering.md`, `00-config.md` and `brand-context.md`.
 
-Fill `<marketing root>/CLAUDE.md` from the scaffold template: project name, owner name, reply language, marketing root path, and the product repository path if the marketing folder sits beside the code rather than inside it. Replace every placeholder; leave none behind.
+## Step 5 - Fill the time zone and start
 
-## Step 5 - Wire up activation
+Set the time zone from the system if you can read it; otherwise ask it as part of round 2.
 
-1. Enable the plugin for this project in `<marketing root>/.claude/settings.json`, and in the repository's own `.claude/settings.json` if the owner wants to run `/wm` from the repository root:
-   ```json
-   { "enabledPlugins": { "wiseup-marketing@wiseup": true } }
-   ```
-2. Check the permission rules in `<marketing root>/.claude/settings.json` still fit; adjust the script paths if the marketing root is not `Marketing/`.
-3. Offer a path-scoped rule at the repository root so the marketing rules load automatically whenever the folder is touched: `.claude/rules/marketing.md` with `paths: ["Marketing/**"]`.
-4. Ask whether to schedule the recurring work - a weekly content plan and a monthly report - and at which local time in the time zone from round 1. Only create schedules the owner asks for.
+Then **stop asking and start working** on the deliverable from question 7. The agent that takes it will ask for what it needs, when it needs it.
 
 ## Step 6 - Report
 
 In the owner's reply language:
-- where the marketing root is and what was created,
-- a tier-by-tier status of the required context: complete, or the exact `TODO` lines that remain,
-- the three ways to start a marketing session (`/wm`, a session whose working directory is the marketing root, or touching a file in it),
-- the first three tasks you recommend, each with the agent that would do it and the context it still needs.
+- what was created and where, and the exact file actions taken (naming any tracked file, if the profile touched one),
+- that nothing needs committing, if that is true,
+- the three ways to start a session (`/wm`, a session whose working directory is the marketing root, or touching a file in it),
+- what is being worked on now, and the one or two things the owner will be asked next.
+
+## Just-in-time context, from here on
+
+`${CLAUDE_PLUGIN_ROOT}/reference/required-context.md` is the full list of what WM eventually needs, in four tiers. **Only Tier 1 blocks the start** - rounds 1 and 2 cover it.
+
+After init, the rule is: **the agent that needs a fact asks for that fact, at the moment it needs it, as one question.** The ads specialist asks for the budget ceiling when a campaign is being built, not on day one. The copywriter asks about tone when it writes the first headline. Nobody is sent back to a twenty-question interview.
+
+The deep questions in Tier 4 - real customer language, objections, past attempts, proof, seasonality - are worth a dedicated session with the bundled `wiseup-marketing:grilling` skill. **Offer that once, after the first deliverable ships**, when the owner has seen what WM produces and can judge what is worth deepening.

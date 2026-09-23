@@ -6,6 +6,8 @@ Nothing in this plugin carries a default. If an item is not answered, it stays `
 
 **The interview itself is conducted in English.** The reply language is the first thing it asks; from the moment that answer is recorded, the CMO switches to it.
 
+**Only Tier 1 blocks the start.** `wm-init` covers it in two rounds and then begins work. Everything below Tier 1 is asked **just in time** - by the agent that needs the fact, at the moment it needs it, as a single question. Tier 4 is a dedicated grilling session, offered once after the first deliverable ships.
+
 ---
 
 ## Tier 1 - Blocking. Nothing can be produced without these.

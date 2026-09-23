@@ -1,8 +1,8 @@
 {
   "name": "wiseup-marketing",
   "displayName": "Wiseup Marketing",
-  "version": "1.0.1",
-  "description": "WM Plugin. Drops a full marketing department into any project: a CMO orchestrator delegating to nine specialist agents, with the interview and marketing toolbox skills bundled in. Ships empty by design - no brand, no colours, no fonts, no language, no prices - and fills itself through a first-run interview. Every deliverable stops at review for a human to approve.",
+  "version": "1.1.0",
+  "description": "WM Plugin. A complete marketing department for any project: a CMO orchestrator and nine specialist agents working out of a self-contained Marketing/ folder. Detects how to place itself safely in your repository, asks seven questions, and starts working. No preset brand, language or product data - and no agent ever publishes, sends or spends anything.",
   "author": {
     "name": "Wiseup"
   },
