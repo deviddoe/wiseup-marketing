@@ -11,7 +11,7 @@ claude plugin marketplace add <this repository's URL>
 ### [Wiseup Marketing](./wiseup-marketing) (`wiseup-marketing`)
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.1.0-green.svg)](./wiseup-marketing#changelog)
+[![Version](https://img.shields.io/badge/version-1.2.0-green.svg)](./wiseup-marketing#changelog)
 
 A complete marketing department you can drop into any project: a CMO orchestrator, nine specialist agents, and a self-contained `Marketing/` folder for everything they produce.
 

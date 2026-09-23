@@ -7,7 +7,7 @@ One CMO orchestrator, nine specialist agents, and a self-contained `Marketing/` 
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-D97757.svg)](https://code.claude.com/docs/en/plugins)
-[![Version](https://img.shields.io/badge/version-1.1.0-green.svg)](#changelog)
+[![Version](https://img.shields.io/badge/version-1.2.0-green.svg)](#changelog)
 [![Agents](https://img.shields.io/badge/agents-9-informational.svg)](#the-team)
 [![Skills](https://img.shields.io/badge/skills-27-informational.svg)](#skills)
 
@@ -65,6 +65,26 @@ Restart the session, then in the project that needs marketing:
 | → | it starts building that thing |
 
 Everything else is asked **just in time** — by the agent that needs the fact, at the moment it needs it. The ads specialist asks for your budget ceiling when you build a campaign, not on day one.
+
+### Then: build the foundation
+
+Setup ends with a fork. Go straight to your first deliverable, or run the stage that makes everything afterwards sharper:
+
+```
+/wiseup-marketing:wm-foundation
+```
+
+Five documents, worked through one at a time with a grilling interview and a quality gate on each — because they depend on each other, and asking about tone before the offer is settled produces a tone for a product that does not exist yet.
+
+| # | Document | Gate it must pass | Also produces |
+|---|---|---|---|
+| 1 | Product offering | a stranger could buy from it without asking a question | `claims-policy.md` |
+| 2 | Brand context | exactly three pillars, each provable today | — |
+| 3 | Brand voice | five we-say / never-say pairs, each with a reason | — |
+| 4 | Brand style | a test banner renders and was looked at | `_brand/tokens.json` |
+| 5 | Growth marketing | every goal has a number and a date; the stop rule is numeric | the first-tasks list |
+
+Each one is read back to you and approved before the next opens. Stop and resume whenever — progress lives in the files, not in the conversation.
 
 ---
 
@@ -172,6 +192,7 @@ Turn off the ones a project does not need in `_context/00-config.md`; the CMO wi
 | Skill | What it does |
 |---|---|
 | `wm-init` | set up the department: detect, place, ask seven questions, start |
+| `wm-foundation` | the five foundation documents, grilled one at a time with a quality gate on each |
 | `market-research` | a sourced competitor or market study, ending in implications |
 | `weekly-social-plan` | next period's plan plus draft posts for every active channel |
 | `ad-campaign` | a paid campaign end to end, with a pre-flight gate on analytics |
@@ -332,6 +353,7 @@ Wiseup Marketing bundles two MIT-licensed projects, with attribution and licence
 
 ## Changelog
 
+**1.2.0** — adds `wm-foundation`: the five foundation documents, grilled one at a time with a quality gate on each, producing the claims policy and the brand tokens as by-products.
 **1.1.0** — setup is detected rather than asked: three placement profiles, a single confirmation, and a two-round interview that starts work after seven questions. Everything else is asked just in time. Adds `/wm-doctor`.
 **1.0.1** — always-on descriptions trimmed by 45% (~2,193 → ~1,630 tokens per session).
 **1.0.0** — first public release. Licensing resolved and attributed; MIT throughout.

@@ -58,7 +58,12 @@ Write them into `product-offering.md`, `00-config.md` and `brand-context.md`.
 
 Set the time zone from the system if you can read it; otherwise ask it as part of round 2.
 
-Then **stop asking and start working** on the deliverable from question 7. The agent that takes it will ask for what it needs, when it needs it.
+Then offer the owner the fork, in one `AskUserQuestion`:
+
+- **Build the foundation first** (`wm-foundation`) - five documents, grilled one at a time, roughly an hour each. Recommended for a project that has not written its positioning, voice and claims down anywhere. Everything the team produces afterwards is sharper, and the claims policy stops being guesswork.
+- **Start the deliverable now** - go straight to the answer from question 7. The agents ask for what they need as they need it, and the foundation can be built later.
+
+Whichever they pick, start it in this session. Do not end the setup with a list of things they could do.
 
 ## Step 6 - Report
 
@@ -74,4 +79,4 @@ In the owner's reply language:
 
 After init, the rule is: **the agent that needs a fact asks for that fact, at the moment it needs it, as one question.** The ads specialist asks for the budget ceiling when a campaign is being built, not on day one. The copywriter asks about tone when it writes the first headline. Nobody is sent back to a twenty-question interview.
 
-The deep questions in Tier 4 - real customer language, objections, past attempts, proof, seasonality - are worth a dedicated session with the bundled `wiseup-marketing:grilling` skill. **Offer that once, after the first deliverable ships**, when the owner has seen what WM produces and can judge what is worth deepening.
+The deep work belongs to `wm-foundation`: the five documents that carry positioning, voice, style, the offer and the growth plan, each grilled properly and gated on quality. Offer it at the end of setup, and again once the first deliverable ships - by then the owner has seen what WM produces and can judge what is worth deepening.

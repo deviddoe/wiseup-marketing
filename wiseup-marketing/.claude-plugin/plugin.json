@@ -1,7 +1,7 @@
 {
   "name": "wiseup-marketing",
   "displayName": "Wiseup Marketing",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "WM Plugin. A complete marketing department for any project: a CMO orchestrator and nine specialist agents working out of a self-contained Marketing/ folder. Detects how to place itself safely in your repository, asks seven questions, and starts working. No preset brand, language or product data - and no agent ever publishes, sends or spends anything.",
   "author": {
     "name": "Wiseup"

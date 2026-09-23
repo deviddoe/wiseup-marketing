@@ -28,6 +28,7 @@ Audit the Wiseup Marketing setup in this project and report in the owner's reply
 - Compare `_context/` against the four tiers.
 - Report Tier 1 gaps as **blocking**, Tier 2 as **blocks publishing**, Tier 3 as **blocks that kind of work**, Tier 4 as **worth deepening**.
 - Do not list every `TODO`. Name the tier, the count, and the two that unblock the most.
+- Read the frontmatter `status` of the five foundation documents - `product-offering`, `brand-context`, `brand-voice-guide`, `brand-style-guide`, `growth-marketing-context`. Report them as a row each: approved, drafted, or still template. If two or more are still template, say that `wm-foundation` is the highest-value thing the owner could do, and offer to start it.
 
 ## 5. Brand and tooling
 
