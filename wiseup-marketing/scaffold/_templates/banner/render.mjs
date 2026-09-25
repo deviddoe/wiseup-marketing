@@ -12,7 +12,7 @@
 //         "headlineSize": 104 (optional, px at 1080 width),
 //         "badgeCase": "none|upper|georgian-mtavruli" (optional; defaults to tokens.caseTransform),
 //         "keepHtml": true (optional) }
-import { readFileSync, writeFileSync, existsSync, unlinkSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, unlinkSync, statSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { pathToFileURL, fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
@@ -161,22 +161,50 @@ const browsers = [
   "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
   "/usr/bin/google-chrome",
   "/usr/bin/chromium",
-];
-const browser = browsers.find(existsSync);
-if (!browser) throw new Error("No Edge/Chrome found for rendering.");
+].filter(existsSync);
+if (!browsers.length) throw new Error("No Edge/Chrome found for rendering.");
 
+// A headless browser can exit 0 and write nothing at all - a broken Edge install does exactly
+// that. Never trust the exit code: delete the target first, then check the file really appeared,
+// and move on to the next browser if it did not.
+if (existsSync(out)) unlinkSync(out);
+
+const args = [
+  "--headless=new",
+  "--disable-gpu",
+  "--hide-scrollbars",
+  "--force-device-scale-factor=1",
+  "--virtual-time-budget=6000",
+  `--window-size=${W},${H}`,
+  `--screenshot=${out}`,
+  pathToFileURL(tmp).href,
+];
+
+let used = null;
+const failures = [];
 try {
-  execFileSync(browser, [
-    "--headless=new",
-    "--disable-gpu",
-    "--hide-scrollbars",
-    "--force-device-scale-factor=1",
-    "--virtual-time-budget=6000",
-    `--window-size=${W},${H}`,
-    `--screenshot=${out}`,
-    pathToFileURL(tmp).href,
-  ], { stdio: "pipe" });
+  for (const browser of browsers) {
+    let err = "";
+    try {
+      execFileSync(browser, args, { stdio: "pipe" });
+    } catch (e) {
+      err = String(e.stderr || e.message || "").trim().split("\n")[0];
+    }
+    if (existsSync(out) && statSync(out).size > 0) {
+      used = browser;
+      break;
+    }
+    failures.push(`  ${browser}${err ? " - " + err : " - exited without writing a file"}`);
+  }
 } finally {
-  if (!spec.keepHtml) unlinkSync(tmp);
+  if (!spec.keepHtml && existsSync(tmp)) unlinkSync(tmp);
 }
-console.log(`Rendered ${W}x${H} -> ${out}`);
+
+if (!used) {
+  console.error(
+    "No browser produced a screenshot. Tried:\n" + failures.join("\n") +
+    "\n\nInstall or repair Google Chrome or Microsoft Edge, then run this again."
+  );
+  process.exit(3);
+}
+console.log(`Rendered ${W}x${H} -> ${out}  (${used.split(/[\\/]/).pop()})`);
